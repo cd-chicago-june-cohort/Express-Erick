@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+        <title>Survery Form</title>
+    </head>
+    <body>
+        <div id="formContainer">
+            <form action="process" method="post">
+                Your Name: <input type="text" name="name"><br>
+                Dojo Location: <select id="location" name="location">
+                    <option value="Chicago">Chicago</option>
+                    <option value="Seattle">Seattle</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="Tulsa">Tulsa</option>
+                </select><br>
+                Favorite Language: <select id="language" name="language">
+                    <option value="Python">Python</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="C#">C#</option>
+                    <option value="PHP">PHP</option>
+                </select><br>
+                Comments (optional:)<br><textarea name="comment" rows="5" cols="30"></textarea>
+                <input type="submit">
+            </form>
+        </div>
+    </body>
+</html>
