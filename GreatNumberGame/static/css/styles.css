@@ -1,0 +1,49 @@
+#wrapper{
+    width: 800px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+}
+#resultWrapper{
+    width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+.center{
+    text-align: center;
+}
+#centerInputText{
+    position:relative;
+    left:40%;
+    margin-bottom: 20px;
+}
+#centerInput{
+    position:relative;
+    left:45%;
+}
+#answerContainerWrong{
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-top: 13%;
+    background-color: red;
+    color: white;
+}
+#answerContainerRight{
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-top: 7%;
+    background-color: green;
+    color: white;
+}
+#playAgain{
+    position:relative;
+    left:30%;
+    color: white;
+}
