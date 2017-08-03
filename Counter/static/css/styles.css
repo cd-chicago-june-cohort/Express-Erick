@@ -1,0 +1,18 @@
+#counterContainer{
+    width: 500px;
+    height: 500px;
+    padding: 30px;
+    margin: auto;
+}
+#counterText{
+    text-align: center;
+}
+#counter{
+    text-align: center;
+}
+#two{
+    margin: auto;
+    left: 45%;
+    position:relative;
+    width: 50px;
+}

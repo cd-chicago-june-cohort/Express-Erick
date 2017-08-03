@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>Counter</title>
+    </head>
+    <body>
+        <div id="counterContainer">
+            <h1 id="counterText">Counter</h1>
+            <h3 id="counter"><%= counter %> times</h3>
+            <form action="/two">
+                <input id="two" type="submit" value="+2">
+            </form>
+            <form action="/reset">
+                <input id="two" type="submit" value="reset">
+            </form>
+        </div>
+    </body>
+</html>
