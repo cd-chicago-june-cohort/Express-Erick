@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <title>Survery Form</title>
+        <script type ="text/javascript">
+            $(document).ready(function (){
+                // this triggers the connection event in our server!
+                var socket  = io. connect();
+
+                $('#response').hide();
+ 
+                $('form').submit(function (){
+                    event.preventDefault();
+                    socket.emit( "form_submit", {name: $("#name").val(), location: $("#location").val(), language: $("#language").val(), comment: $("#comment").val()});
+                });
+                socket.on( 'server_response', function (data){
+                    $('#response').show();
+                    $('#info').append(document.createTextNode('You emitted the following information to the server: ' + JSON.stringify(data.user)));
+                    $('#num').append(document.createTextNode('Your lucky number emitted by the server is: ' + data.num));
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="response">
+            <p id="info"></p>
+            <p id="num"></p>
+            <a href="/"><button type="">Reset</button></a>
+        </div>
+        <div id="formContainer">
+            <form action="process" method="post">
+                Your Name: <input id="name" type="text" name="name"><br>
+                Dojo Location: <select id="location" name="location" id="location">
+                    <option value="Chicago">Chicago</option>
+                    <option value="Seattle">Seattle</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="Tulsa">Tulsa</option>
+                </select><br>
+                Favorite Language: <select id="language" name="language">
+                    <option value="Python">Python</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="C#">C#</option>
+                    <option value="PHP">PHP</option>
+                </select><br>
+                Comments (optional:)<br><textarea id="comment" name="comment" rows="5" cols="30"></textarea>
+                <input type="submit" id="submit">
+            </form>
+        </div>
+    </body>
+</html>

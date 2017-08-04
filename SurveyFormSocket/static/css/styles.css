@@ -1,0 +1,18 @@
+#formContainer{
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    border: 1px solid black;
+    padding: 20px;
+    margin-top: 20px;
+}
+u{
+    font-weight: bold;
+}
+#response{
+    margin: auto;
+    width: 500px;
+    border: 1px solid black;
+    padding: 20px;
+    margin-top: 20px;
+}
