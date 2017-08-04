@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                var socket  = io.connect();
+            
+                $('#epicButton').click(function(){
+                    var clicked = $("#counter").text();
+                    socket.emit("button_clicked", {'counter':clicked});
+                });
+            
+                $('#resetButton').click(function(){
+                    var reset = 0;
+                    socket.emit("button_reset", {'reset':reset});
+                });
+
+                socket.on('server_response', function (data){
+                    document.getElementById("counter").innerHTML = data.click;
+                });
+            });
+        </script>
+        <title>Epic Number Game</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1 class="center">The button has been pushed <span id="counter">0</span> time(s)</h1>
+            <h4 class="center">Push the button to update the count!!!</h4>
+            <button id="epicButton">Push the epic button</button>
+            <button id="resetButton">Reset Count</button>
+        </div>
+    </body>
+</html>
